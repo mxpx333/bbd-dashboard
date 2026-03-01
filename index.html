@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBD Portfolio</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --green-bg: rgba(63,185,80,0.1);
+    --red: #f85149;
+    --red-bg: rgba(248,81,73,0.1);
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --gold: #d29922;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    text-align: center;
+    padding: 12px 0 20px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .header .last-updated {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    opacity: 0.7;
+  }
+  .hero {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .hero .total-value {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+  }
+  .hero .total-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 12px 8px;
+  }
+  .hero-stat .label {
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .hero-stat .value {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .hero-stat .sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .positive { color: var(--green); }
+  .negative { color: var(--red); }
+  .positive-bg { background: var(--green-bg); }
+  .negative-bg { background: var(--red-bg); }
+
+  .info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .info-bar .basis {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .holdings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    margin-bottom: 10px;
+  }
+  .holdings-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .holdings-header .count {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .holding-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+    transition: border-color 0.2s;
+  }
+  .holding-card:hover {
+    border-color: var(--blue);
+  }
+  .holding-left { display: flex; flex-direction: column; gap: 2px; }
+  .holding-ticker {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .holding-ticker .score {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--purple);
+    background: rgba(188,140,255,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+  .holding-detail {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .holding-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .holding-value {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .holding-gain {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .holding-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .weight-bar-container {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .weight-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .weight-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+  .weight-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    min-width: 35px;
+    text-align: right;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+  .loading .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .hero .total-value { font-size: 36px; }
+    .hero-stat .value { font-size: 17px; }
+    .hero-stats { gap: 8px; }
+    .hero-stat { padding: 10px 6px; }
+    .hero-stat .label { font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Buy, Borrow, Die</h1>
+  <div class="subtitle">14-Stock Equal-Weight Portfolio</div>
+  <div class="last-updated" id="last-updated">Loading...</div>
+</div>
+
+<div id="dashboard">
+  <div class="loading">
+    <div class="spinner"></div>
+    <div>Loading portfolio data...</div>
+  </div>
+</div>
+
+<div class="footer">
+  Prices update every 30 minutes during market hours
+</div>
+
+<script>
+function fmt(n) {
+  return n.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+function fmtD(n, d) {
+  return n.toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
+}
+function sign(n) {
+  return n >= 0 ? '+' : '';
+}
+function cls(n) {
+  return n >= 0 ? 'positive' : 'negative';
+}
+function clsBg(n) {
+  return n >= 0 ? 'positive-bg' : 'negative-bg';
+}
+
+function renderDashboard(d) {
+  document.getElementById('last-updated').textContent =
+    'Prices as of ' + d.timestamp + ' | Held ' + d.days_held + ' days (' + d.years_held + ' yrs)';
+
+  let html = '';
+
+  // Hero card
+  html += '<div class="hero">';
+  html += '  <div class="total-label">Portfolio Value</div>';
+  html += '  <div class="total-value">$' + fmt(d.total_value) + '</div>';
+  html += '  <div class="hero-stats">';
+
+  html += '    <div class="hero-stat ' + clsBg(d.total_gain) + '">';
+  html += '      <div class="label">Gain/Loss</div>';
+  html += '      <div class="value ' + cls(d.total_gain) + '">' + sign(d.total_gain) + '$' + fmt(Math.abs(d.total_gain)) + '</div>';
+  html += '      <div class="sub">on $' + fmt(d.original_capital) + ' invested</div>';
+  html += '    </div>';
+
+  html += '    <div class="hero-stat ' + clsBg(d.total_gain_pct) + '">';
+  html += '      <div class="label">Total Return</div>';
+  html += '      <div class="value ' + cls(d.total_gain_pct) + '">' + sign(d.total_gain_pct) + fmtD(Math.abs(d.total_gain_pct), 1) + '%</div>';
+  html += '      <div class="sub">since Aug 2025</div>';
+  html += '    </div>';
+
+  html += '    <div class="hero-stat ' + clsBg(d.cagr) + '">';
+  html += '      <div class="label">CAGR</div>';
+  html += '      <div class="value ' + cls(d.cagr) + '">' + sign(d.cagr) + fmtD(Math.abs(d.cagr), 1) + '%</div>';
+  html += '      <div class="sub">annualized</div>';
+  html += '    </div>';
+
+  html += '  </div>';
+  html += '</div>';
+
+  // Info bar
+  html += '<div class="info-bar">';
+  html += '  <span>Position Basis: <span class="basis">$' + fmt(d.total_cost_basis) + '</span>';
+  html += '  (' + sign(d.gain_vs_basis_pct) + fmtD(Math.abs(d.gain_vs_basis_pct), 1) + '% since reshuffle)</span>';
+  html += '  <span>Reshuffled Feb 25, 2026</span>';
+  html += '</div>';
+
+  // Holdings header
+  html += '<div class="holdings-header">';
+  html += '  <h2>Holdings</h2>';
+  html += '  <span class="count">' + d.num_stocks + ' stocks | ' +
+          d.holdings.reduce((a,h) => a + h.shares, 0) + ' shares</span>';
+  html += '</div>';
+
+  let holdings = d.holdings.slice().sort((a,b) => b.current_value - a.current_value);
+
+  for (let h of holdings) {
+    html += '<div class="holding-card">';
+    html += '  <div class="holding-left">';
+    html += '    <div class="holding-ticker">' + h.ticker +
+            ' <span class="score">' + h.score.toFixed(1) + '</span></div>';
+    html += '    <div class="holding-detail">' + h.shares + ' shares @ $' +
+            fmtD(h.avg_cost, 2) + ' avg</div>';
+    html += '    <div class="holding-detail">$' + fmtD(h.current_price, 2) + ' / share</div>';
+
+    let barColor = Math.abs(h.weight - h.target_weight) > 1.5 ? '#d29922' : '#58a6ff';
+    html += '    <div class="weight-bar-container">';
+    html += '      <div class="weight-bar"><div class="weight-bar-fill" style="width:' +
+            Math.min(h.weight * 7, 100) + '%;background:' + barColor + '"></div></div>';
+    html += '      <span class="weight-label">' + fmtD(h.weight, 1) + '%</span>';
+    html += '    </div>';
+
+    html += '  </div>';
+    html += '  <div class="holding-right">';
+    html += '    <div class="holding-value">$' + fmt(h.current_value) + '</div>';
+    html += '    <div class="holding-gain ' + cls(h.gain_loss) + '">' +
+            sign(h.gain_loss) + '$' + fmt(Math.abs(h.gain_loss)) + '</div>';
+    html += '    <div class="holding-sub ' + cls(h.gain_pct) + '">' +
+            sign(h.gain_pct) + fmtD(Math.abs(h.gain_pct), 1) + '%</div>';
+    html += '  </div>';
+    html += '</div>';
+  }
+
+  document.getElementById('dashboard').innerHTML = html;
+}
+
+async function refresh() {
+  try {
+    const resp = await fetch('data.json');
+    const data = await resp.json();
+    if (data.error) {
+      document.getElementById('dashboard').innerHTML =
+        '<div class="loading"><div>Error: ' + data.error + '</div></div>';
+      return;
+    }
+    renderDashboard(data);
+  } catch (e) {
+    document.getElementById('dashboard').innerHTML =
+      '<div class="loading"><div>Failed to load data. Try refreshing.</div></div>';
+  }
+}
+
+refresh();
+
+// Re-check data.json every 5 min (in case GitHub Actions just pushed an update)
+setInterval(refresh, 300000);
+</script>
+
+</body>
+</html>

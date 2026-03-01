@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-27 20:36:07",
+  "timestamp": "2026-03-01 23:03:28",
   "portfolio_start": "2025-08-18",
   "reshuffle_date": "2026-02-25",
-  "days_held": 193,
+  "days_held": 195,
   "years_held": 0.53,
   "original_capital": 85187.0,
   "total_cost_basis": 119000.45,
@@ -11,7 +11,7 @@
   "total_gain_pct": 40.32,
   "gain_vs_basis": 534.7,
   "gain_vs_basis_pct": 0.45,
-  "cagr": 89.86,
+  "cagr": 88.61,
   "num_stocks": 14,
   "holdings": [
     {

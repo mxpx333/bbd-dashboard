@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-04-14 21:11:37",
+  "timestamp": "2026-04-14 22:08:33",
   "portfolio_start": "2025-08-18",
   "reshuffle_date": "2026-02-25",
   "days_held": 239,
   "years_held": 0.65,
   "original_capital": 85187.0,
   "total_cost_basis": 119000.45,
-  "total_value": NaN,
-  "total_gain": NaN,
-  "total_gain_pct": NaN,
-  "gain_vs_basis": NaN,
-  "gain_vs_basis_pct": NaN,
-  "cagr": NaN,
+  "total_value": 120504.87,
+  "total_gain": 35317.87,
+  "total_gain_pct": 41.46,
+  "gain_vs_basis": 1504.42,
+  "gain_vs_basis_pct": 1.26,
+  "cagr": 69.9,
   "num_stocks": 14,
   "holdings": [
     {
@@ -24,7 +24,7 @@
       "current_value": 9235.97,
       "gain_loss": 560.27,
       "gain_pct": 6.46,
-      "weight": 0,
+      "weight": 7.66,
       "target_weight": 7.14
     },
     {
@@ -37,7 +37,7 @@
       "current_value": 8095.62,
       "gain_loss": -4.38,
       "gain_pct": -0.05,
-      "weight": 0,
+      "weight": 6.72,
       "target_weight": 7.14
     },
     {
@@ -46,11 +46,11 @@
       "shares": 8,
       "avg_cost": 1033.32,
       "cost_basis": 8266.56,
-      "current_price": NaN,
-      "current_value": NaN,
-      "gain_loss": NaN,
-      "gain_pct": NaN,
-      "weight": 0,
+      "current_price": 922.5,
+      "current_value": 7380.0,
+      "gain_loss": -886.56,
+      "gain_pct": -10.72,
+      "weight": 6.12,
       "target_weight": 7.14
     },
     {
@@ -63,7 +63,7 @@
       "current_value": 8210.56,
       "gain_loss": 76.08,
       "gain_pct": 0.94,
-      "weight": 0,
+      "weight": 6.81,
       "target_weight": 7.14
     },
     {
@@ -76,7 +76,7 @@
       "current_value": 7110.99,
       "gain_loss": -1278.01,
       "gain_pct": -15.23,
-      "weight": 0,
+      "weight": 5.9,
       "target_weight": 7.14
     },
     {
@@ -89,7 +89,7 @@
       "current_value": 9519.5,
       "gain_loss": 1213.87,
       "gain_pct": 14.62,
-      "weight": 0,
+      "weight": 7.9,
       "target_weight": 7.14
     },
     {
@@ -102,7 +102,7 @@
       "current_value": 7543.04,
       "gain_loss": -613.96,
       "gain_pct": -7.53,
-      "weight": 0,
+      "weight": 6.26,
       "target_weight": 7.14
     },
     {
@@ -115,7 +115,7 @@
       "current_value": 8255.31,
       "gain_loss": -2106.95,
       "gain_pct": -20.33,
-      "weight": 0,
+      "weight": 6.85,
       "target_weight": 7.14
     },
     {
@@ -128,7 +128,7 @@
       "current_value": 8655.66,
       "gain_loss": 2158.66,
       "gain_pct": 33.23,
-      "weight": 0,
+      "weight": 7.18,
       "target_weight": 7.14
     },
     {
@@ -141,7 +141,7 @@
       "current_value": 7949.88,
       "gain_loss": -1012.72,
       "gain_pct": -11.3,
-      "weight": 0,
+      "weight": 6.6,
       "target_weight": 7.14
     },
     {
@@ -154,7 +154,7 @@
       "current_value": 7537.64,
       "gain_loss": -789.36,
       "gain_pct": -9.48,
-      "weight": 0,
+      "weight": 6.26,
       "target_weight": 7.14
     },
     {
@@ -167,7 +167,7 @@
       "current_value": 7764.9,
       "gain_loss": -439.1,
       "gain_pct": -5.35,
-      "weight": 0,
+      "weight": 6.44,
       "target_weight": 7.14
     },
     {
@@ -180,7 +180,7 @@
       "current_value": 13285.0,
       "gain_loss": 3036.78,
       "gain_pct": 29.63,
-      "weight": 0,
+      "weight": 11.02,
       "target_weight": 7.14
     },
     {
@@ -193,7 +193,7 @@
       "current_value": 9960.8,
       "gain_loss": 1589.8,
       "gain_pct": 18.99,
-      "weight": 0,
+      "weight": 8.27,
       "target_weight": 7.14
     }
   ]

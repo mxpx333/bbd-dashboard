@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-08-24 20:17:42",
+  "timestamp": "2026-08-24 20:55:01",
   "portfolio_start": "2025-08-18",
   "reshuffle_date": "2026-02-25",
   "days_held": 371,
   "years_held": 1.02,
   "original_capital": 85187.0,
   "total_cost_basis": 119000.45,
-  "total_value": 132488.23,
-  "total_gain": 47301.23,
-  "total_gain_pct": 55.53,
-  "gain_vs_basis": 13487.78,
+  "total_value": 132480.31,
+  "total_gain": 47293.31,
+  "total_gain_pct": 55.52,
+  "gain_vs_basis": 13479.86,
   "gain_vs_basis_pct": 11.33,
-  "cagr": 54.47,
+  "cagr": 54.46,
   "num_stocks": 14,
   "holdings": [
     {
@@ -37,7 +37,7 @@
       "current_value": 9942.66,
       "gain_loss": 1842.66,
       "gain_pct": 22.75,
-      "weight": 7.5,
+      "weight": 7.51,
       "target_weight": 7.14
     },
     {
@@ -46,11 +46,11 @@
       "shares": 8,
       "avg_cost": 1033.32,
       "cost_basis": 8266.56,
-      "current_price": 1247.92,
-      "current_value": 9983.36,
-      "gain_loss": 1716.8,
-      "gain_pct": 20.77,
-      "weight": 7.54,
+      "current_price": 1246.93,
+      "current_value": 9975.44,
+      "gain_loss": 1708.88,
+      "gain_pct": 20.67,
+      "weight": 7.53,
       "target_weight": 7.14
     },
     {
